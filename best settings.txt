@@ -1,0 +1,42 @@
+#### Import required modules
+import time
+import threading
+from ultralytics import YOLO
+
+# Load the YOLOv8 model
+model = YOLO("yolov8n.pt")
+data_path = "/kaggle/input/class-18/data.yaml"
+# Define training parameters
+model.train(
+    data=data_path,
+    patience=20,        # Stops early if no improvement
+    epochs=300,
+    lr0=0.0009,              # Reduce learning rate for finer adjustment
+    lrf=0.25,                # Keep final learning rate fraction
+    momentum=0.95,           
+    weight_decay=0.0004,     
+    optimizer="AdamW",       
+    box=4.5,                 # Lower box loss slightly to focus more on classification and refinement
+    cls=0.25,                # Lower class loss a bit to reduce emphasis on perfect classification
+    dfl=1.5,   
+    # Number of training epochs
+    imgsz=640,
+    project="YOLOv8",  # Custom project name in Kaggle
+    name="sign_train", # Experiment name
+    batch=8,          # Batch size
+    device="cuda",  # Use GPU if available
+    cache=False,
+    save_period=  30   # Save checkpoint every 2 epochs
+)
+ 
+
+def keep_alive():
+    """Function to keep the session alive."""
+    while True:
+        time.sleep(60 * 5)  # Sleep for 5 minutes to prevent timeout
+        print("Session is alive")
+
+# Run keep_alive function in a separate thread to avoid blocking training
+thread = threading.Thread(target=keep_alive)
+thread.daemon = True  # Daemonize thread to exit when the main program ends
+thread.start()

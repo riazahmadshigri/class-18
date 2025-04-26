@@ -1,0 +1,18 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 29
+names: ['I', 'apple', 'can', 'get', 'good', 'have', 'help',
+ 'how', 'like', 'love', 'my', 'no', 'sorry', 'thank-you', 
+ 'want', 'yes', 'you', 'your','Ali','cold','I love you','keep smiling',
+ 'this','home','drink','sleep','small','urgent','warm']
+
+roboflow:
+  workspace: centurion-university-ddkye
+  project: sign-language-detection-vmsy2
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/centurion-university-ddkye/sign-language-detection-vmsy2/dataset/1
+
+  

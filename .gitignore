@@ -1,0 +1,26 @@
+# Ignore Python virtual environment
+.venv/
+venv/
+ENV/
+
+# Ignore training, validation, and testing datasets
+train/
+valid/
+test/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VSCode settings (optional)
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+
+# Logs
+*.log
