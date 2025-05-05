@@ -4,14 +4,14 @@
 #  #!pip install flask_socketio
 
 
-from ultralytics import YOLO,settings
-from flask import Flask, render_template,jsonify
-# from flask_socketio import SocketIO
-import cv2
-import base64
-import torch
-import numpy as np
-import os
+# from ultralytics import YOLO,settings
+# from flask import Flask, render_template,jsonify
+# # from flask_socketio import SocketIO
+# import cv2
+# import base64
+# import torch
+# import numpy as np
+# import os
 
 
 
@@ -47,14 +47,14 @@ import os
 
 
 
-from ultralytics import YOLO
+from ultralytics import YOLO,settings
 from flask import Flask, request, jsonify
 from flask_sock import Sock
 import cv2
 import base64
 import numpy as np
 import base64
-import time
+import os
 
 os.environ["ULTRALYTICS_CACHE_DIR"] = os.path.join(os.getcwd(), "ultralytics_cache2")
 
